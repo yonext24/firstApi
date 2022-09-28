@@ -1,0 +1,12 @@
+.main-container {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  margin-top: 10px;
+  transition: all ease .2s;
+  margin-top: 80px;
+}
+.loading {
+  position: absolute;
+}

@@ -1,0 +1,37 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+}
+.navbar-container {
+  background: linear-gradient(180deg, white 55%, rgba(255, 255, 255, .9));
+  width: 90%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  align-items: center;
+}
+.logreg-container {
+  margin-right: 40px;
+}
+.logreg-container a, .logout {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: var(--moderate-blue);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.home {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  margin-left: 40px;
+}
