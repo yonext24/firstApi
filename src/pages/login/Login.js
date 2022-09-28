@@ -31,8 +31,6 @@ export default function Login() {
       const res = await axios({
         method: 'POST',
         url: 'https://y4nzz-fullstack.onrender.com/api/auth/login',
-        withCredentials: true,
-        credentials: true,
         data: credentials,
         mode: 'cors'
       })
