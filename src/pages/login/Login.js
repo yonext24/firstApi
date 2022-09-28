@@ -30,11 +30,11 @@ export default function Login() {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'http://localhost:8800/api/auth/login',
+        url: 'https://y4nzz-fullstack.onrender.com/api/auth/login',
         withCredentials: true,
         credentials: true,
         data: credentials,
-        mode: 'same-origin'
+        mode: 'cors'
       })
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details })
       navigate('/')
@@ -53,7 +53,7 @@ export default function Login() {
       <input type='submit' disabled={loading} />
       {
         loading && <div className='loading'>
-          <div class="spinner"></div>
+          <div className="spinner"></div>
         </div>
       }
       { 

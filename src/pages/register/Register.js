@@ -26,7 +26,7 @@ export default function Register() {
     setLoading(true)
     try {
       const res = await axios({
-        url: 'http://localhost:8800/api/auth/register',
+        url: 'https://y4nzz-fullstack.onrender.com/api/auth/register',
         method: 'POST',
         data: credentials
       })

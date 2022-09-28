@@ -18,8 +18,7 @@
   justify-content: center;
   z-index: 100;
   pointer-events: all;
-  opacity: 1;
-  transition: opacity .4s;
+  
 }
 .buttons-container {
   align-items: center;

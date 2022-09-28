@@ -25,7 +25,7 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
     try {
       const res = await axios({
         method: 'POST',
-        url: `http://localhost:8800/api/comments/${repliedComment}`,
+        url: `https://y4nzz-fullstack.onrender.com/api/comments/${repliedComment}`,
         data: { comment: inputValue },
         withCredentials: true
       })
@@ -48,7 +48,7 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
     try {
       const res = await axios({
         method: 'POST',
-        url: 'http://localhost:8800/api/comments',
+        url: 'https://y4nzz-fullstack.onrender.com/api/comments',
         data: { comment: inputValue },
         withCredentials: true
       })
@@ -71,7 +71,7 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
       defaultValue={repliedTo ? `@${repliedTo}` : ''} />
     <button className='send-reply' disabled={loading} onClick={handleSubmit} >{
     (() => {
-      if (loading) return <div class="spinner2"></div>
+      if (loading) return <div className="spinner2"></div>
       if (repliedTo) return 'REPLY'
       return 'SEND'
     })()

@@ -27,7 +27,7 @@ export default function Comentario({ comment }) {
       setLoading(true)
       const replies = comment.replies.map(async replie => {
         try {
-          const { data } = await axios.get(`http://localhost:8800/api/comments/${replie}`)
+          const { data } = await axios.get(`https://y4nzz-fullstack.onrender.com/api/comments/${replie}`)
           return data
         } catch (err) { }
       })
@@ -49,7 +49,7 @@ export default function Comentario({ comment }) {
     try {
       const res = await axios({
         method: 'PUT',
-        url: `http://localhost:8800/api/comments/${comment._id}`,
+        url: `https://y4nzz-fullstack.onrender.com/api/comments/${comment._id}`,
         withCredentials: true,
         credentials: true,
         data: {comment: editInput}
