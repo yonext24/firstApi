@@ -42,7 +42,7 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
       handleReply()
       return
     }
-    if (!user) navigate('/login')
+    if (!user) {navigate('/login'); return}
 
     setLoading(true)
     try {
