@@ -70,8 +70,10 @@
   margin: 17px 0
 }
 .you {
-  padding: 2px;
-  border-radius: 1px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
   color: white;
   margin-right: 1rem;
   background-color: var(--moderate-blue);
