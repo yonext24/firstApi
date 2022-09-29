@@ -120,7 +120,6 @@
   width: 100%;
   margin-left: auto;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   padding: 10px 0;
   background-color: white;
