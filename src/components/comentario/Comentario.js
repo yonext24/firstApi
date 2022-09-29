@@ -46,13 +46,14 @@ export default function Comentario({ comment }) {
   }
   const handleEditButton = async () => {
     setEditLoading(true)
+    axios.defaults.withCredentials = true
     try {
       const res = await axios({
         method: 'PUT',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${comment._id}`,
         withCredentials: true,
         credentials: true,
-        data: {comment: editInput}
+        data: {comment: editInput},
       })
       console.log(res)
       if (res) {

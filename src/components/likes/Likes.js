@@ -18,10 +18,12 @@ export default function Likes({ score, id, usersWhoLiked, usersWhoDisliked }) {
   const handleDelDisLike = async () => {
     setLoading(true)
     try {
+      axios.defaults.withCredentials = true
       const res = await axios({
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}/dislike`,
         method: 'DELETE',
         withCredentials: true,
+        credentials: true
       })
       if (res) window.location.reload()
     } catch (err) {

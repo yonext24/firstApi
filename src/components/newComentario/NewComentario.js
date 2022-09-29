@@ -23,17 +23,19 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
   const handleReply = async () => {
     setLoading(true)
     try {
+      axios.defaults.withCredentials = true
       const res = await axios({
         method: 'POST',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${repliedComment}`,
         data: { comment: inputValue },
-        withCredentials: true
+        withCredentials: true,
+        credentials: true
       })
       setLoading(false)
       if (res) {
         window.location.reload()
       }
-    } catch (err) {setLoading(false); console.log(err)}
+    } catch (err) { setLoading(false); console.log(err) }
   }
 
   const handleSubmit = async e => {
@@ -42,15 +44,17 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
       handleReply()
       return
     }
-    if (!user) {navigate('/login'); return}
+    if (!user) { navigate('/login'); return }
 
     setLoading(true)
     try {
+      axios.defaults.withCredentials = true
       const res = await axios({
         method: 'POST',
         url: 'https://y4nzz-fullstack.onrender.com/api/comments',
         data: { comment: inputValue },
-        withCredentials: true
+        withCredentials: true,
+        credentials: true
       })
       setLoading(false)
       if (res) {
@@ -61,7 +65,7 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
   }
 
   return <div className={`newComment ${isFullWidth}`}>
-    <img src={avatar} alt='avatar' className='avatar'/>
+    <img src={avatar} alt='avatar' className='avatar' />
     <textarea
       className='comment-content'
       disabled={loading}
@@ -70,11 +74,11 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
       onChange={handleChange}
       defaultValue={repliedTo ? `@${repliedTo}` : ''} />
     <button className='send-reply' disabled={loading} onClick={handleSubmit} >{
-    (() => {
-      if (loading) return <div className="spinner2"></div>
-      if (repliedTo) return 'REPLY'
-      return 'SEND'
-    })()
+      (() => {
+        if (loading) return <div className="spinner2"></div>
+        if (repliedTo) return 'REPLY'
+        return 'SEND'
+      })()
     }</button>
   </div>
 
