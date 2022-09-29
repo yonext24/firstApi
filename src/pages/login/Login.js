@@ -30,10 +30,11 @@ export default function Login() {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'https://y4nzz-fullstack.onrender.com/api/auth/login',
+        url: 'http://localhost:8800/api/auth/login',
         data: credentials,
         mode: 'cors'
       })
+      if (res) document.cookie = `access_token=${res.headers.cookie}`
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details })
       navigate('/')
 

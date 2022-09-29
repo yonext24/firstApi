@@ -5,7 +5,9 @@ import NewComentario from '../../components/newComentario/NewComentario.js'
 import { useFetch } from '../../hooks/useComments.js'
 
 export default function Home() {
+  
   const { loading, comments, error } = useFetch()
+
 
   comments.sort((a,b) => {
     if (a.score < b.score) return 1
