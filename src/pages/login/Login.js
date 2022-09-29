@@ -30,7 +30,7 @@ export default function Login() {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'https://adorable-panda-7d06e6.netlify.app/api/auth/login',
+        url: 'https://y4nzz-fullstack.onrender.com/api/auth/login',
         data: credentials,
         mode: 'cors'
       })
