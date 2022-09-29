@@ -94,6 +94,9 @@ export default function Comentario({ comment }) {
                   <div className='info'>
                     <img src={avatar} alt='avatar' className='avatar'></img>
                     <p>{comment.author.username}</p>
+                    {
+                      comment.author.username === user.username && <div className='you'>you</div>
+                    }
                     <span className='date'>{date.toLocaleString('en-US', { hour12: false })}</span>
                   </div>
                   <div className='del-reply'>

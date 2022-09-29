@@ -3,19 +3,19 @@ p .liked {
 }
 .likes {
   margin: 0 20px;
-  padding: 5px 12px;
+  padding: 5px 9px;
   border-radius: 10px;
   background-color: var(--very-light-gray);
   display: flex;
   flex-direction: column;
   align-self: center;
   align-items: center;
-  height: 80%;
+  height: 6rem;
   justify-content: space-around;
 }
 
 .likes span {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--dark-blue);
 }

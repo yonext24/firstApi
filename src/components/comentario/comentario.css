@@ -14,7 +14,7 @@
 .info-container > .info > img, .comment-replie > .info-container > img {
   height: 35px;
   width: 35px;
-  margin-left: 10px;
+  margin-left: 0px;
   margin-right: 10px;
   border-radius: 50%;
 }
@@ -67,6 +67,11 @@
 .comment-content {
   display: flex;
   flex-direction: column;
+  margin: 17px 0
+}
+.you {
+  padding: 3px;
+  background-color: var(--moderate-blue);
 }
 .comment {
   font-weight: 500;
@@ -77,9 +82,9 @@
 }
 .replies-line {
   height: 80%;
-  border: 2px solid rgb(209, 209, 209);
+  border: 2px solid var(--light-gray);
   position: absolute;
-  left: 4.2%;
+  left: 5.6%;
   bottom: 1rem;
   z-index: -1;
 }
