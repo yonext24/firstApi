@@ -95,7 +95,13 @@ export default function Comentario({ comment }) {
                     <img src={avatar} alt='avatar' className='avatar'></img>
                     <p>{comment.author.username}</p>
                     {
-                      comment.author.username === user.username && <div className='you'>you</div>
+                      (() => {
+                        if (user !== null && user.username === comment.author.username) {
+                          return <div className='you'>you</div>
+                          
+                      }
+                      return null
+                    })()
                     }
                     <span className='date'>{date.toLocaleString('en-US', { hour12: false })}</span>
                   </div>
