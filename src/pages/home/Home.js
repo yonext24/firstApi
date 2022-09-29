@@ -19,6 +19,9 @@ export default function Home() {
       loading && <div className='spinner' style={{margin: '20px auto'}}></div> 
     }
     {
+      error && <span style={{margin: '20px auto', color: 'red'}}>Error: cannot get comments</span>
+    }
+    {
       comments.map(comment => <Comentario comment={comment}
         key={comment._id}
         loading={loading}
