@@ -96,10 +96,10 @@
 .delete {
   cursor: pointer;
 }
-.delete:hover {
-  transition: ease-in .1s;
-  opacity: 50%;
-  filter: grayscale(100%)
+.delete:hover, .send-reply:hover, .edit:hover {
+  transition: ease-in .05s;
+  opacity: 20%;
+  filter: grayscale(70%)
 }
 .del-reply {
   display: flex;
@@ -193,10 +193,6 @@
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-}
-.editComment .send-reply:hover {
-  transition: ease-in-out .1s;
-  background-color: var(--grayish-blue);
 }
 .comment-comment {
   width: 100%;
