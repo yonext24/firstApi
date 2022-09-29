@@ -142,13 +142,6 @@ export default function Comentario({ comment }) {
                   <img src={avatar} alt='avatar' className='avatar' />
                   <p>{comment.author.username}</p>
                   <div className='you'>you</div>
-                  <div className='del-reply'>
-                    <div className='delete-container'>
-                      <button className='delete' disabled={loading} onClick={handleDelete}>
-                        <img alt='DELETE' src={del} />
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               <textarea

@@ -98,7 +98,6 @@
 }
 .delete:hover, .send-reply:hover, .edit:hover {
   transition: ease-in .05s;
-  opacity: 20%;
   filter: grayscale(70%)
 }
 .del-reply {
