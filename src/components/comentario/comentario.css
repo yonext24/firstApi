@@ -70,7 +70,9 @@
   margin: 17px 0
 }
 .you {
-  padding: 3px;
+  padding: 1px;
+  color: white;
+  margin-right: 1rem;
   background-color: var(--moderate-blue);
 }
 .comment {

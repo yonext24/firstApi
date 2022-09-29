@@ -73,7 +73,8 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
   return <div className={`newComment ${isFullWidth}`}>
     <img src={avatar} alt='avatar' className='avatar' />
     <textarea
-      className='comment-content'
+      className='comment-content' 
+      placeholder='Add a comment...'
       disabled={loading}
       autoFocus={true}
       onFocus={e => e.target.selectionStart = repliedTo ? `@${repliedTo} `.length : 0}
