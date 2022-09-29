@@ -16,6 +16,9 @@ export default function Home() {
   return <div className="main-container">
     <NewComentario isFullWidth='isFullWidth' />
     {
+      loading && <div className='spinner' style={{margin: '20px auto'}}></div> 
+    }
+    {
       comments.map(comment => <Comentario comment={comment}
         key={comment._id}
         loading={loading}

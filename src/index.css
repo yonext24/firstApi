@@ -33,14 +33,13 @@ button:disabled {
   background-color: black;
 }
 .spinner {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: 9px solid;
   border-color: #dbdcef;
   border-right-color: #474bff;
   animation: spinner-d3wgkg 1s infinite linear;
-  position: absolute;
 }
 
 @keyframes spinner-d3wgkg {
