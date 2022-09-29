@@ -19,7 +19,10 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
     setInputValue(e.target.value)
   }
   const handleReply = async () => {
-    if (!user) navigate('/login')
+    if (!user) {
+      navigate('/login')
+      return
+    }
     setLoading(true)
     try {
       const res = await axios({
