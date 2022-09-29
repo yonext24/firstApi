@@ -70,8 +70,13 @@ export default function Reply({ usersWhoLiked, usersWhoDisliked,  username, crea
                 <img src={avatar} className='avatar' alt='avatar'></img>
                 <p>{username}</p>
                 {
-                      username === user.username && <div className='you'>you</div>
-                }
+                      (() => {
+                        if (user !== null && user.username === username) {
+                          return <div className='you'>you</div>
+                      }
+                      return null
+                    })()
+                    }
                 <span className='date'>{date.toLocaleString('en-US', { hour12: false })}</span>
               </div>
               <div className='del-reply'>
