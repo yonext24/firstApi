@@ -17,7 +17,7 @@ export default function DeleteModal({ id, state }) {
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}`,
         withCredentials: true,
         headers: {
-          cookie: document.cookie.split('=')[1] || ''
+          xxxxx: document.cookie.split('=')[1] || ''
         },
         credentials: true
       })

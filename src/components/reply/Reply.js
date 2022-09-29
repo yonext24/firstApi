@@ -31,7 +31,7 @@ export default function Reply({ usersWhoLiked, usersWhoDisliked,  username, crea
         withCredentials: true,
         credentials: true,
         headers: {
-          cookie: document.cookie.split('=')[1] || ''
+          xxxxx: document.cookie.split('=')[1] || ''
         },
         data: { comment: editInput }
       })

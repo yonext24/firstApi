@@ -53,7 +53,7 @@ export default function Comentario({ comment }) {
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${comment._id}`,
         withCredentials: true,
         headers: {
-          cookie: document.cookie.split('=')[1] || ''
+          xxxxx: document.cookie.split('=')[1] || ''
         },
         credentials: true,
         data: {comment: editInput},
