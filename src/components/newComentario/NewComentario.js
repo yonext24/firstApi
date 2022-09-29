@@ -28,6 +28,9 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
         method: 'POST',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${repliedComment}`,
         data: { comment: inputValue },
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         withCredentials: true,
         credentials: true
       })
@@ -53,6 +56,9 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
         method: 'POST',
         url: 'https://y4nzz-fullstack.onrender.com/api/comments',
         data: { comment: inputValue },
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         withCredentials: true,
         credentials: true
       })

@@ -9,15 +9,16 @@ export default function DeleteModal({ id, state }) {
     state(false)
   }
 
-
   const handleDeleteComment = async () => {
     setLoading(true)
     try {
-      axios.defaults.withCredentials = true
       const res = await axios({
         method: 'DELETE',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}`,
         withCredentials: true,
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         credentials: true
       })
       console.log(res)

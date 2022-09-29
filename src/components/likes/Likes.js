@@ -22,6 +22,9 @@ export default function Likes({ score, id, usersWhoLiked, usersWhoDisliked }) {
       const res = await axios({
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}/dislike`,
         method: 'DELETE',
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         withCredentials: true,
         credentials: true
       })
@@ -36,6 +39,9 @@ export default function Likes({ score, id, usersWhoLiked, usersWhoDisliked }) {
       const res = await axios({
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}/like`,
         method: 'DELETE',
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         withCredentials: true,
       })
       if (res) window.location.reload()
@@ -49,7 +55,10 @@ export default function Likes({ score, id, usersWhoLiked, usersWhoDisliked }) {
       const res = await axios({
         method: 'PUT',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}/like`,
-        withCredentials: true
+        withCredentials: true,
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
       })
       if (res) window.location.reload()
     } catch (err) {
@@ -62,7 +71,10 @@ export default function Likes({ score, id, usersWhoLiked, usersWhoDisliked }) {
       const res = await axios({
         method: 'POST',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}/dislike`,
-        withCredentials: true
+        withCredentials: true,
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
       })
       if (res) window.location.reload()
     } catch (err) {

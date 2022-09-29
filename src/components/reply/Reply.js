@@ -30,6 +30,9 @@ export default function Reply({ usersWhoLiked, usersWhoDisliked,  username, crea
         url: `http://localhost:8800/api/comments/${id}`,
         withCredentials: true,
         credentials: true,
+        headers: {
+          cookie: document.cookie.split('=')[1] || ''
+        },
         data: { comment: editInput }
       })
       console.log(res)
