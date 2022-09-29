@@ -13,17 +13,15 @@ export default function NewComentario({ repliedTo = '', isFullWidth = '', replie
   const [loading, setLoading] = useState(false)
   const { user } = useContext(UserContext)
 
-  console.log()
-
   const navigate = useNavigate()
 
   const handleChange = e => {
     setInputValue(e.target.value)
   }
   const handleReply = async () => {
+    if (!user) navigate('/login')
     setLoading(true)
     try {
-      axios.defaults.withCredentials = true
       const res = await axios({
         method: 'POST',
         url: `https://y4nzz-fullstack.onrender.com/api/comments/${repliedComment}`,
