@@ -22,7 +22,7 @@ p .liked {
 
 .likes button {
   border: none;
-  background-color: none;
+  background-color: var(--very-light-gray);
   cursor: pointer;
   width: 90%;
   transition: ease-in .2s;
