@@ -56,14 +56,14 @@ export default function Comentario({ comment }) {
           xxxxx: document.cookie.split('=')[1] || ''
         },
         credentials: true,
-        data: {comment: editInput},
+        data: { comment: editInput },
       })
       console.log(res)
       if (res) {
         setEditLoading(false)
         window.location.reload()
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
   }
@@ -135,23 +135,37 @@ export default function Comentario({ comment }) {
 
             </div>
           </>
-          : <div className={`editComment`}>
-          <img src={avatar} alt='avatar' className='avatar'/>
-          <textarea
-            className='comment-content'
-            autoFocus={true}
-            onFocus={e => e.target.selectionStart = comment.comment ? `${comment.comment}`.length : 0}
-            onChange={handleEditChange}
-            defaultValue={comment.comment ? `${comment.comment}` : ''} />
-          <button className='send-reply' disabled={editLoading} onClick={handleEditButton}>{
-            (() => {
-              if (editLoading) return <div class="spinner2"></div>
-              return 'EDIT'
-            })()
-          }</button>
-          <button className='edit-close' onClick={handleEditClose}>X</button>
-        </div>
-      
+            :
+            <div className={`editComment`}>
+              <div className='info-container'>
+                <div className='info'>
+                  <img src={avatar} alt='avatar' className='avatar' />
+                  <p>{comment.author.username}</p>
+                  <div className='you'>you</div>
+                  <div className='del-reply'>
+                    <div className='delete-container'>
+                      <button className='delete' disabled={loading} onClick={handleDelete}>
+                        <img alt='DELETE' src={del} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <textarea
+                className='comment-content'
+                autoFocus={true}
+                onFocus={e => e.target.selectionStart = comment.comment ? `${comment.comment}`.length : 0}
+                onChange={handleEditChange}
+                defaultValue={comment.comment ? `${comment.comment}` : ''} />
+              <button className='send-reply' disabled={editLoading} onClick={handleEditButton}>{
+                (() => {
+                  if (editLoading) return <div class="spinner2"></div>
+                  return 'EDIT'
+                })()
+              }</button>
+              <button className='edit-close' onClick={handleEditClose}>X</button>
+            </div>
+
         }
 
         {
@@ -168,7 +182,7 @@ export default function Comentario({ comment }) {
               username={replie.author.username}
               createdAt={replie.createdAt}
               parentCommentId={comment._id}
-              usersWhoLiked={replie.usersWhoLiked} 
+              usersWhoLiked={replie.usersWhoLiked}
               usersWhoDisliked={replie.usersWhoDisliked}
               id={replie._id} />
           })
