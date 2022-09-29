@@ -60,8 +60,7 @@
 
 .reply-button:hover {
   transition: ease-in .1s;
-  opacity: 50%;
-  filter: grayscale(100%)
+  filter: grayscale(100%);
 }
 
 .comment-content {
