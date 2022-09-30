@@ -7,7 +7,19 @@
   display: flex;
   margin-bottom: 10px;
   border-radius: 10px;
+  animation: commentAppear .3s ease-in-out
 }
+@keyframes commentAppear {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
 .comment-content {
   width: 90%;
 }

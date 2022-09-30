@@ -34,6 +34,7 @@ export default function Login() {
         data: credentials,
         mode: 'cors'
       })
+      console.log(res)
       if (res) document.cookie = `access_token=${res.headers.cookie}`
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details })
       navigate('/')

@@ -22,10 +22,9 @@ export default function Home() {
       error && <span style={{margin: '20px auto', color: 'red'}}>Error: cannot get comments</span>
     }
     {
-      comments.map(comment => <Comentario comment={comment}
+      comments.map(comment => <Comentario 
+        comment={comment}
         key={comment._id}
-        loading={loading}
-        error={error}
       ></Comentario>)
     }
   </div>

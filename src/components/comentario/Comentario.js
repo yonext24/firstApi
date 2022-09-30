@@ -13,30 +13,12 @@ import Likes from '../likes/Likes.js'
 
 export default function Comentario({ comment }) {
   const [hasInput, setHasInput] = useState(false)
-  const [replies, setReplies] = useState([])
-  const [loading, setLoading] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [editInput, setEditInput] = useState(comment.comment)
   const [editLoading, setEditLoading] = useState(false)
   const [hasModal, setHasModal] = useState(false)
 
   const { user } = useContext(UserContext)
-
-  useEffect(() => {
-    const getReplies = async () => {
-      setLoading(true)
-      const replies = comment.replies.map(async replie => {
-        try {
-          const { data } = await axios.get(`https://y4nzz-fullstack.onrender.com/api/comments/${replie}`)
-          return data
-        } catch (err) { }
-      })
-      Promise.all(replies)
-        .then(res => setReplies(res))
-        .then(setLoading(false))
-    }
-    getReplies()
-  }, [comment.replies])
 
   const handleReply = () => {
     hasInput ? setHasInput(false) : setHasInput(true)
@@ -46,7 +28,6 @@ export default function Comentario({ comment }) {
   }
   const handleEditButton = async () => {
     setEditLoading(true)
-    axios.defaults.withCredentials = true
     try {
       const res = await axios({
         method: 'PUT',
@@ -79,11 +60,9 @@ export default function Comentario({ comment }) {
 
   const date = new Date(comment.createdAt)
 
-  if (loading) return <div className='spinner'></div>
-
   return <>
     {
-      comment.replyingTo === undefined && <div className='comment-replies-container'>
+      comment.replyingTo === undefined && <div className={`comment-replies-container`}>
         {
           !isEditing ? <>
             <div className='replies-line'></div>
@@ -97,8 +76,7 @@ export default function Comentario({ comment }) {
                     {
                       (() => {
                         if (user !== null && user.username === comment.author.username) {
-                          return <div className='you'>you</div>
-                          
+                          return <div className='you'>you</div>   
                       }
                       return null
                     })()
@@ -108,7 +86,7 @@ export default function Comentario({ comment }) {
                   <div className='del-reply'>
                     {
                       (() => {
-                        if (user !== null && user.username === comment.author.username) {
+                        if ((user !== null) && ( user.username === comment.author.username || user.isAdmin === true )) {
                           return (
                             <>
                               <div className='edit-container'>
@@ -117,7 +95,7 @@ export default function Comentario({ comment }) {
                                 </button>
                               </div>
                               <div className='delete-container'>
-                                <button className='delete' disabled={loading} onClick={handleDelete}>
+                                <button className='delete' onClick={handleDelete}>
                                   <img alt='DELETE' src={del} />
                                 </button>
                               </div>
@@ -165,7 +143,7 @@ export default function Comentario({ comment }) {
         }
 
         {
-          replies.map(replie => {
+          comment.replies.map(replie => {
             return <Reply
               key={replie._id}
               repliedTo={replie.replyingTo}
