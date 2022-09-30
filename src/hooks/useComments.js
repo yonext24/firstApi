@@ -11,7 +11,10 @@ export const useFetch = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('https://y4nzz-fullstack.onrender.com/api/comments');
+        const res = await axios.get(process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:8800/api/comments'
+        : 'https://y4nzz-fullstack.onrender.com/api/comments');
+
         setData(res.data);
       } catch (err) {
         setError(err);

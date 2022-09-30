@@ -10,3 +10,13 @@
 .loading {
   position: absolute;
 }
+@media (max-width: 860px) {
+  .main-container {
+    width: 80%;
+  }
+}
+@media (max-width: 710px) {
+  .main-container {
+    width: 100%;
+  }
+}

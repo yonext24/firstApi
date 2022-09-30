@@ -12,6 +12,7 @@ p .liked {
   align-items: center;
   height: 6rem;
   justify-content: space-around;
+  order: -1;
 }
 
 .likes span {
@@ -37,4 +38,14 @@ p .liked {
 }
 .disLiked {
   filter: hue-rotate(120deg) saturate(100);
+}
+@media (max-width: 525px) {
+  .likes {
+    flex-direction: row;
+    height: 24px;
+    align-self: flex-start;
+  }
+  .likes span {
+    margin: 0 10px;
+  }
 }

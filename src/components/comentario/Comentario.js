@@ -59,6 +59,8 @@ export default function Comentario({ comment }) {
   }
 
   const date = new Date(comment.createdAt)
+  const [month, day, year, hour] = [date.getMonth(), date.getDate(), date.getFullYear(), date.getHours()];
+  const formattedDate = day + '/' + month + '/' + year + ' ' + hour + 'hs'
 
   return <>
     {
@@ -67,7 +69,6 @@ export default function Comentario({ comment }) {
           !isEditing ? <>
             <div className='replies-line'></div>
             <div className="singleComment">
-              <Likes score={comment.score} id={comment._id} usersWhoLiked={comment.usersWhoLiked} usersWhoDisliked={comment.usersWhoDisliked}></Likes>
               <div className='comment-content'>
                 <div className='info-container'>
                   <div className='info'>
@@ -81,7 +82,7 @@ export default function Comentario({ comment }) {
                       return null
                     })()
                     }
-                    <span className='date'>{date.toLocaleString('en-US', { hour12: false })}</span>
+                    <span className='date'>{formattedDate}</span>
                   </div>
                   <div className='del-reply'>
                     {
@@ -116,7 +117,7 @@ export default function Comentario({ comment }) {
                 </div>
                 <h4 className='comment'>{comment.comment}</h4>
               </div>
-
+              <Likes score={comment.score} id={comment._id} usersWhoLiked={comment.usersWhoLiked} usersWhoDisliked={comment.usersWhoDisliked}></Likes>
             </div>
           </>
           : <div className={`editComment`}>

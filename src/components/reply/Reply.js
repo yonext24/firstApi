@@ -58,6 +58,8 @@ export default function Reply({ usersWhoLiked, usersWhoDisliked,  username, crea
   }
 
   const date = new Date(createdAt)
+  const [month, day, year, hour] = [date.getMonth(), date.getDate(), date.getFullYear(), date.getHours()];
+  const formattedDate = day + '/' + month + '/' + year + ' ' + hour + 'hs'
 
   return <>
     {
@@ -77,7 +79,7 @@ export default function Reply({ usersWhoLiked, usersWhoDisliked,  username, crea
                       return null
                     })()
                     }
-                <span className='date'>{date.toLocaleString('en-US', { hour12: false })}</span>
+                <span className='date'>{formattedDate}</span>
               </div>
               <div className='del-reply'>
                 {

@@ -14,7 +14,9 @@ export default function DeleteModal({ id, state }) {
     try {
       const res = await axios({
         method: 'DELETE',
-        url: `https://y4nzz-fullstack.onrender.com/api/comments/${id}`,
+        url: process.env.NODE_ENV === 'development' 
+        ? `http://localhost:8800/api/comments/${id}`
+        : `https://y4nzz-fullstack.onrender.com/api/comments/${id}`,
         withCredentials: true,
         headers: {
           xxxxx: document.cookie.split('=')[1] || ''

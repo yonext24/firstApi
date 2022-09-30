@@ -201,3 +201,26 @@
 .comment-comment {
   width: 100%;
 }
+@media (max-width: 860px) {
+}
+@media (max-width: 750px) {
+  .singleComment {
+  }
+  .comment {
+    font-size: 15px;
+  }
+}
+@media (max-width: 525px) {
+  .singleComment {
+    flex-direction: column-reverse;
+    position: relative
+  }
+  .comment, .info-container {
+    margin-left: 25px;
+  }
+  .del-reply {
+    position: absolute;
+    bottom: 17px;
+    right: 10px;
+  }
+}

@@ -30,7 +30,9 @@ export default function Login() {
     try {
       const res = await axios({
         method: 'POST',
-        url: 'https://y4nzz-fullstack.onrender.com/api/auth/login',
+        url: process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:8800/api/auth/login'
+        : 'https://y4nzz-fullstack.onrender.com/api/auth/login',
         data: credentials,
         mode: 'cors'
       })
