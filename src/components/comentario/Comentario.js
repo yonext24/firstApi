@@ -1,6 +1,6 @@
 import './comentario.css'
 import replieSvg from '../../images/icon-reply.svg'
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import NewComentario from '../newComentario/NewComentario'
 import { UserContext } from '../../contexts/UserContext'
 import Reply from '../reply/Reply'
