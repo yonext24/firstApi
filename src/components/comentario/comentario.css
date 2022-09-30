@@ -201,10 +201,9 @@
 .comment-comment {
   width: 100%;
 }
-@media (max-width: 860px) {
-}
 @media (max-width: 750px) {
-  .singleComment {
+  .reply > .comment-comment > .comment {
+    width: 87%;
   }
   .comment {
     font-size: 15px;
