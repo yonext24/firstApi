@@ -45,13 +45,6 @@ const UserContextProvider = ({children}) => {
   useEffect(() => {
     localStorage.setItem('user', JSON.stringify(state.user))
   }, [state.user])
-  
-  useEffect(() => {
-    if (!document.cookie.split('=')[0] === 'access_token') {
-      localStorage.setItem('user', null)
-      dispatch({type: 'INITIAL'})
-    }
-  }, [])
 
   return <UserContext.Provider value={{
     user: state.user,
